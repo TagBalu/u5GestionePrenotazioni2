@@ -4,11 +4,13 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString
 @Table(name = "dipendenti")
 public class dipendente {
     @Id
@@ -18,4 +20,10 @@ public class dipendente {
     protected String nome;
     protected String cognome;
     protected String email;
+
+    public dipendente(String nome, String cognome, String email) {
+        this.nome = nome;
+        this.cognome = cognome;
+        this.email = email;
+    }
 }
