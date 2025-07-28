@@ -10,6 +10,7 @@ public record NewDipendenteDTO(
         String cognome,
         @NotEmpty(message = "L'email è obbligatoria")
         @Pattern(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "L'email inserita non è valida")
-        String email
+        String email,
+        String password
 ) {
 }

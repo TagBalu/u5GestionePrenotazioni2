@@ -20,10 +20,12 @@ public class dipendente {
     protected String nome;
     protected String cognome;
     protected String email;
+    protected String password;
 
-    public dipendente(String nome, String cognome, String email) {
+    public dipendente(String nome, String cognome, String email,String password) {
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
+        this.password=password;
     }
 }

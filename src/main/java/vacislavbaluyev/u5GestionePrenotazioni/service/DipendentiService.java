@@ -28,7 +28,7 @@ public class DipendentiService {
         this.dipendentiRepository.findByEmail(payload.email()).ifPresent(dipendente ->{
             throw new BadRequestException("L'email" + dipendente.getEmail()+ "è già in uso!");
         } );
-        dipendente newDipendente = new dipendente(payload.nome(),payload.cognome(),payload.email());
+        dipendente newDipendente = new dipendente(payload.nome(),payload.cognome(),payload.email(),payload.password());
         dipendente savedDipendente= this.dipendentiRepository.save(newDipendente);
         log.info("Dipendente"+ savedDipendente.getId() +"creato con successo!");
         
@@ -44,6 +44,10 @@ public class DipendentiService {
     public void findAndDeleteById(int id) {
         dipendente found = this.findById(id);
         dipendentiRepository.delete(found);
+    }
+
+    public dipendente findByEmail(String email){
+        return this.dipendentiRepository.findByEmail(email).orElseThrow(()-> new NotFoundException("Non è stato trovato l'utente con questa email" + email));
     }
 
 
