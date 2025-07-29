@@ -5,12 +5,16 @@ import org.springframework.stereotype.Service;
 import vacislavbaluyev.u5GestionePrenotazioni.entities.dipendente;
 import vacislavbaluyev.u5GestionePrenotazioni.exceptions.UnauthorizedException;
 import vacislavbaluyev.u5GestionePrenotazioni.payloads.dipendenti.LoginDTO;
+import vacislavbaluyev.u5GestionePrenotazioni.tools.JWWTools;
 
 @Service
-public class PublicService {
+public class AuthService {
 
     @Autowired
     private DipendentiService DipendentiService;
+
+    @Autowired
+    private JWWTools jwwTools;
 
     public String checkAndGenerate(LoginDTO body) {
         dipendente found = this.DipendentiService.findByEmail(body.email());
