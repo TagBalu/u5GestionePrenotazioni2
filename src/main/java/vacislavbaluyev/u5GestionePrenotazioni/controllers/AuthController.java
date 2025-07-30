@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 import vacislavbaluyev.u5GestionePrenotazioni.payloads.dipendenti.LoginDTO;
 
 @RestController
-@RequestMapping("/public")
-public class PublciController {
+@RequestMapping("/auth")
+public class AuthController {
 
     @PostMapping("/login")
     public String login (@RequestBody LoginDTO body){}
